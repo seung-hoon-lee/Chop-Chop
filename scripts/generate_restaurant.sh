@@ -1,0 +1,16 @@
+CUDA_VISIBLE_DEVICES=5 python qlora.py \
+    --model_name_or_path /home/data_seung/llm-awq/Meta-Llama-3-8B \
+    --output_dir /home/data_seung/qlora/output/llama3-8b-restaurant \
+    --do_train False \
+    --do_eval False \
+    --do_predict True \
+    --predict_with_generate \
+    --per_device_eval_batch_size 1 \
+    --dataset_format input-output \
+    --dataset /home/data_seung/qlora/response_10k_noattr_modify4qlora.jsonl \
+    --source_max_len 6144 \
+    --target_max_len 512 \
+    --max_new_tokens 2048 \
+    --do_sample \
+    --top_p 0.9 \
+    --num_beams 1 \
